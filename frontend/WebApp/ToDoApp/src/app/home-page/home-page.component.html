@@ -1,0 +1,39 @@
+<div class="container">
+  <h1 id="welcome-message">Welcome, <span id="username-placeholder">{{ username }}</span>!</h1>
+  <div class="container">
+    <h1 class="title">To-Do List</h1>
+    <div class="todo-list">
+      <table *ngIf="activeTaskToDoList.length > 0; else noTasksMessage">
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Task Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="task-row" *ngFor="let task of activeTaskToDoList; let i = index">
+            <td>{{ task.taskName }} </td>
+            <td *ngIf="!task.editState">{{ task.description }}</td>
+            <td *ngIf="task.editState">
+              <input [(ngModel)]="task.description" type="text" style="width: 100%;" />
+            </td>
+            <td>
+              <i *ngIf="!task.editState" class="fas fa-edit action-icon" (click)="editTask(task)"></i>
+              <i *ngIf="task.editState" class="fas fa-save action-icon" (click)="saveTask(task)"></i>
+              <i *ngIf="task.editState" class="fas fa-times action-icon" (click)="cancelEdit(task.taskId)"></i>
+              <i class="fas fa-trash-alt action-icon" (click)="deleteTask(task.taskId)"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <ng-template #noTasksMessage>
+        <div class="no-tasks-message">
+          <h2>No tasks available</h2>
+          <p>Please add some tasks to get started!</p>
+          <a class="create-task-button" href="/createNewTask">Create New Task</a>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

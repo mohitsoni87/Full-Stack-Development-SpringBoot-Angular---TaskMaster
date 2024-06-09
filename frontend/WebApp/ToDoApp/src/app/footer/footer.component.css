@@ -1,0 +1,28 @@
+/* Custom CSS for Footer */
+
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  main {
+    padding-bottom: 60px; /* Adjust for footer height */
+  }
+  
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa; /* Change to your preferred footer background color */
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  .footer .container {
+    text-align: center;
+  }
+  
+  .footer .text-muted {
+    font-size: 0.9rem;
+  }
+  

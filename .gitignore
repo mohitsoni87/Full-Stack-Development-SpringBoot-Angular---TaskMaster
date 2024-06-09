@@ -46,3 +46,7 @@ build/
 !/frontend/WebApp/ToDoApp/.vscode/launch.json
 !/frontend/WebApp/ToDoApp/.vscode/extensions.json
 ./frontend/WebApp/ToDoApp/history/*
+
+
+#Angular
+/frontend/WebApp/ToDoApp/.angular

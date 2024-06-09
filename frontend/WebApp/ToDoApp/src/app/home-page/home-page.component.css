@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .todo-image {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: auto;
+  }
+  
+  .todo-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .todo-item {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .todo-item:last-child {
+    margin-bottom: 0;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .todo-list table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .todo-list th, .todo-list td {
+    padding: 10px 15px;
+    text-align: left;
+  }
+  
+  .todo-list th {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .task-row:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .task-row:hover {
+    background-color: #e6e6e6;
+  }
+  
+
+  .action-icon {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .action-icon:last-child {
+    margin-right: 0;
+  }
+
+  /* Custom CSS for No Tasks Message */
+
+/* Custom CSS for No Tasks Message */
+
+/* Custom CSS for No Tasks Message */
+
+.no-tasks-message {
+  text-align: center;
+  padding: 50px;
+  background-color: #f8f9fa; /* Light background color for message area */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.no-tasks-message h2 {
+  font-size: 24px;
+  color: #333; /* Primary text color */
+  margin-bottom: 10px;
+}
+
+.no-ttasks-message p {
+  font-size: 18px;
+  color: #666; /* Secondary text color */
+}
+
+.create-task-button {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #007bff;
+  border-radius: 25px; /* Adjusted to make the button more circular */
+  background-color: white;
+  color: #007bff;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.create-task-button:hover {
+  background-color: #007bff;
+  color: white;
+}

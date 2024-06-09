@@ -1,0 +1,58 @@
+/* Custom CSS for Login Module */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0; /* Change to your preferred background color */
+}
+
+.login-box {
+  width: 300px;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: #ffffff; /* Change to your preferred background color */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333333; /* Change to your preferred text color */
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #cccccc; /* Change to your preferred border color */
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.login-box button[type="submit"],
+.create-account-btn {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 2px solid #007bff;
+  border-radius: 25px; /* Adjusted to make the button more circular */
+  background-color: white;
+  color: #007bff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.login-box button[type="submit"]:hover,
+.create-account-btn:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.login-box small {
+  color: #ff0000; /* Change to your preferred error message color */
+}

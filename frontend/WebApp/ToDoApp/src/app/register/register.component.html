@@ -1,0 +1,16 @@
+<div class="registration-container" (focusout)="onContainerInteraction($event)">
+    <div class="registration-box">
+      <h2>Register</h2>
+      <form [formGroup]="registrationForm" (ngSubmit)="submitRegistration()">
+        <input type="text" formControlName="username" placeholder="Username"><br>
+        <span *ngIf="usernameTaken" class="error-message">Username is already taken</span>
+        <span *ngIf="usernameTaken !== null && usernameTaken !== undefined && !usernameTaken" class="success-message">Username is available</span>
+
+        <input type="text" formControlName="firstName" placeholder="First Name"><br>
+        <input type="text" formControlName="lastName" placeholder="Last Name"><br>
+        <input type="password" formControlName="password" placeholder="Password"><br>
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  </div>
+  
