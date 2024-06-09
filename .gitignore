@@ -1,0 +1,48 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+/backend/todo/.apt_generated
+/backend/todo/.classpath
+/backend/todo/.factorypath
+/backend/todo/.project
+/backend/todo/.settings
+/backend/todo/.springBeans
+/backend/todo/.sts4-cache
+
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# Node
+/frontend/WebApp/ToDoApp/node_modules
+/frontend/WebApp/ToDoApp/npm-debug.log
+/frontend/WebApp/ToDoApp/yarn-error.log
+
+
+# Visual Studio Code
+/frontend/WebApp/ToDoApp/.vscode/*
+!/frontend/WebApp/ToDoApp/.vscode/settings.json
+!/frontend/WebApp/ToDoApp/.vscode/tasks.json
+!/frontend/WebApp/ToDoApp/.vscode/launch.json
+!/frontend/WebApp/ToDoApp/.vscode/extensions.json
+./frontend/WebApp/ToDoApp/history/*
