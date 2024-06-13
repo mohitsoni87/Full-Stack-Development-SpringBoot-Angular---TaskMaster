@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import com.management.spring.todo.Repository.UserRepository;
 import com.management.spring.todo.Service.AuthenticationService;
-import com.management.spring.todo.model.EntityResponse;
 import com.management.spring.todo.model.User;
 
 @Component

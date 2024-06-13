@@ -4,8 +4,9 @@ import { AuthenticationService } from '../services/Authentication/authentication
 import { HttpConnectorService } from '../services/HttpConnector/http-connector.service';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TaskInterface } from '../model/TaskInterface';
+import { TaskInterface, TaskStatus } from '../model/TaskInterface';
 import { forkJoin } from 'rxjs';
+import { stat } from 'node:fs';
 
 @Component({
   selector: 'app-home-page',
@@ -15,18 +16,25 @@ import { forkJoin } from 'rxjs';
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent implements OnInit{
-navigateToCreateTask() {
-throw new Error('Method not implemented.');
-}
-
 
   username: any;
   isUserLoggedIn = false;
   taskToDo: { [key: number]: TaskInterface } = {};
   draftTaskToDo: { [key: number]: TaskInterface } = {};
   activeTaskToDoList: TaskInterface[] = [];
+  filteredTaskToDoList: TaskInterface[] = [];
+  lastFilter: string = '';
+  selectedStatus: 'INPROGRESS';
 
-  descriptionBackup: { [key: number]: string } = {};;
+  static readonly taskStatus = new Map([
+    ['NOT_STARTED', 'Not Started'],
+    ['INPROGRESS', 'In-Progress'],
+    ['COMPLETED', 'Completed']
+  ]);
+
+
+  descriptionBackup: { [key: number]: string } = {};
+  
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -41,10 +49,10 @@ throw new Error('Method not implemented.');
     if(this.username == null){
       this.username = this.authenticator.getUserName();
     }
-    this.getTasks();
+    this.getTasks('INPROGRESS', true);
   }
 
-  getTasks(){
+  getTasks(status: string, isHomePage: Boolean){
     const tasks$ = this._httpConnectorService.getsTasks(this.username);
     const draftTasks$ = this._httpConnectorService.getsDraftTasks(this.username);
 
@@ -55,7 +63,7 @@ throw new Error('Method not implemented.');
       next: ([tasks, draftTasks]: [TaskInterface[], TaskInterface[]]) => {
         this.populateDictionary(tasks, this.taskToDo);
         this.populateDictionary(draftTasks, this.draftTaskToDo);
-        this.generateActiveTaskList();
+        this.generateActiveTaskList(status, isHomePage);
       },
       error: err => {
         console.log("Error");
@@ -63,7 +71,7 @@ throw new Error('Method not implemented.');
     });
   }
 
-  generateActiveTaskList(){ 
+  generateActiveTaskList(status: string, isHomePage: Boolean){ 
     //Adding default editable value for Original Tasks
     this.activeTaskToDoList = [];
 
@@ -86,7 +94,29 @@ throw new Error('Method not implemented.');
         }
       }
     }
+    this.onStatusChange(status, isHomePage);
 
+}
+
+onStatusChange(status: string, isHomePage: Boolean) {
+  console.log("Selected Status Changed:", status);
+  if(this.lastFilter != status || !isHomePage){
+    this.lastFilter = status;
+    this.refreshFilteredList(status);
+  }
+}
+
+refreshFilteredList(status: string){
+  if(status == 'All'){
+    this.filteredTaskToDoList = this.activeTaskToDoList;
+  }else{
+    this.filteredTaskToDoList = this.activeTaskToDoList.filter(task => task.status === status);
+    console.log(this.filteredTaskToDoList)
+  }
+}
+
+statusDisplay(status: string){
+  return HomePageComponent.taskStatus.get(status);
 }
 
   saveTask(task: any) {
@@ -94,7 +124,7 @@ throw new Error('Method not implemented.');
       next:(task: TaskInterface)=>{
         this._httpConnectorService.saveDraft(task).subscribe({
           next:(task: TaskInterface)=>{
-            this.getTasks();
+            this.getTasks(this.lastFilter, false);
           },
           error:err=>{
             //If User not found, then redirect to Registration page so the user can register
@@ -115,7 +145,7 @@ throw new Error('Method not implemented.');
     this._httpConnectorService.deleteTask(taskId).subscribe({
       next:(task: TaskInterface)=>{
         console.log("Task Deleted: ", task)
-        this.getTasks();
+        this.getTasks(this.lastFilter, false);
       },
       error:err=>{
         //If User not found, then redirect to Registration page so the user can register
@@ -158,7 +188,6 @@ throw new Error('Method not implemented.');
       });
     }
   }
-
 
     @HostListener('document:click', ['$event'])
     onClick(event: MouseEvent) {

@@ -60,9 +60,10 @@ export class RegisterComponent {
       console.log('Registration successful', user);
       // Redirect to login page or another page after successful registration
       this.authenticationService.registerUser(user).subscribe({
-        next:(response: ResponseInterface)=>{
+        next:(userResp: UserInterface)=>{
           sessionStorage.setItem("authenticatedUser", user.username);
-          sessionStorage.setItem("userId", user.id.toString());
+          console.log(userResp.id.toString());
+          sessionStorage.setItem("userId", userResp.id.toString());
           this.router.navigate(["home", user.username])
         },
         error:(err)=>{

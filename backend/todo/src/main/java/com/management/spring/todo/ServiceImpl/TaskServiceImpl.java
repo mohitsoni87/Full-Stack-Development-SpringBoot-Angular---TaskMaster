@@ -47,11 +47,7 @@ public class TaskServiceImpl implements TaskService{
 	@Autowired
 	private DraftTaskDTOTask draftTaskDTOTask;
 	
-	public static final Map<String, String> STATUSES = new HashMap<>();
-    static {
-    	STATUSES.put("INPROGRESS", "In-Progress");
-    	STATUSES.put("COMPLETED", "Completed");
-    }
+
 	
 	private HashMap<Integer, Task> tasks = new HashMap<Integer, Task>();
 	private HashMap<Integer, User> users = new HashMap<Integer, User>();
@@ -184,6 +180,7 @@ public class TaskServiceImpl implements TaskService{
 				if(draftTaskCheck!= null) {
 					//Draft Task already present
 					draftTaskCheck.setDescription(draftTask.getDescription());
+					draftTaskCheck.setStatus(draftTask.getStatus());
 					draftTaskRepository.save(draftTaskCheck);
 					return ResponseEntity.ok(draftTaskCheck);
 				}

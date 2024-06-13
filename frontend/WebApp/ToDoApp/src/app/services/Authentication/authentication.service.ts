@@ -47,7 +47,7 @@ export class AuthenticationService {
   }
 
   registerUser(user: UserInterface){
-    return this._httpClient.post<ResponseInterface>(`${API_URL}/user/register`, user)
+    return this._httpClient.post<UserInterface>(`${API_URL}/user/register`, user)
   }
 
   userNameTaken(currentUserName: String) {

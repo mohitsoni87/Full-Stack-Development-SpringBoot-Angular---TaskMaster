@@ -2,6 +2,8 @@ package com.management.spring.todo.DTO;
 
 import java.time.LocalDate;
 
+import com.management.spring.todo.Enum.TaskStatus;
+
 
 public class TaskDTO {
 	
@@ -15,7 +17,7 @@ public class TaskDTO {
 
     private LocalDate date;
 
-    private String status;
+    private TaskStatus status;
     
     private boolean isActive;
     
@@ -23,7 +25,7 @@ public class TaskDTO {
     
     private Integer taskId;
     
-	public TaskDTO(Integer id, String taskName, Integer userId, String description, LocalDate date, String status,
+	public TaskDTO(Integer id, String taskName, Integer userId, String description, LocalDate date, TaskStatus status,
 			boolean isActive, boolean isDraftActive, Integer taskId) {
 		super();
 		this.id = id;
@@ -81,11 +83,11 @@ public class TaskDTO {
 		this.date = date;
 	}
 
-	public String getStatus() {
+	public TaskStatus getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(TaskStatus status) {
 		this.status = status;
 	}
 

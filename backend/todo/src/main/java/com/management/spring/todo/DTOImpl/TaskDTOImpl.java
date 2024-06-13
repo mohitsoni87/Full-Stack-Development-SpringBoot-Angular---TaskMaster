@@ -1,6 +1,8 @@
 package com.management.spring.todo.DTOImpl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
@@ -11,6 +13,12 @@ import com.management.spring.todo.model.Task;
 
 @Component
 public class TaskDTOImpl {
+	
+	public static final Map<String, String> STATUSES = new HashMap<>();
+    static {
+    	STATUSES.put("INPROGRESS", "In-Progress");
+    	STATUSES.put("COMPLETED", "Completed");
+    }
 	
 	public List<TaskDTO> convertTaskToTaskDTO(List<Task> tasks) {
         List<TaskDTO> taskDTOs = null;
@@ -41,7 +49,7 @@ public class TaskDTOImpl {
         taskDTO.setTaskId(task.getId());
         taskDTO.setTaskName(task.getTaskName());
         taskDTO.setUserId(task.getUserId());
-        taskDTO.setStatus(task.getStatus().toString());
+        taskDTO.setStatus(task.getStatus());
         taskDTO.setDescription(task.getDescription());
         taskDTO.setDate(task.getDate());
         taskDTO.setActive(task.getIsActive());
@@ -54,7 +62,7 @@ public class TaskDTOImpl {
         taskDTO.setTaskId(draftTask.getTaskId());
         taskDTO.setTaskName(draftTask.getTaskName());
         taskDTO.setUserId(draftTask.getUserId());
-        taskDTO.setStatus("INPROGRESS");
+        taskDTO.setStatus(draftTask.getStatus());
         taskDTO.setDescription(draftTask.getDescription());
         taskDTO.setDate(draftTask.getDate());
         taskDTO.setDraftActive(draftTask.getIsDraftActive());

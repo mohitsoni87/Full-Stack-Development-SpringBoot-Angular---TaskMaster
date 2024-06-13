@@ -22,7 +22,7 @@ export class Task implements TaskInterface {
     this.draftActive = false;
     this.editState = false;
     this.taskId = 0;
-    this.status = TaskStatus.InProgress;
+    this.status = TaskStatus.INPROGRESS;
   }
 
 }
