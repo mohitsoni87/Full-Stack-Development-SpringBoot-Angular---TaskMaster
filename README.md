@@ -1,7 +1,7 @@
 **Full Stack Development with Spring Boot and Angular - ToDo Application**
 
 **Overview**
-This GitHub repository, maintained by Mohit Soni, presents a comprehensive guide to developing a full-stack ToDo application using Spring Boot for the backend and Angular for the frontend. The project demonstrates how to create, read, update, and delete (CRUD) tasks in a to-do list, showcasing the integration between a Java-based backend and a JavaScript-based frontend.
+A comprehensive guide to developing a full-stack ToDo application using Spring Boot for the backend and Angular for the frontend. The project demonstrates how to create, read, update, and delete (CRUD) tasks in a to-do list, showcasing the integration between a Java-based backend and a JavaScript-based frontend.
 
 **Key Features**
 
