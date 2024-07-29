@@ -1,0 +1,10 @@
+{
+  "routes": [
+    "/",
+    "/createNewTask",
+    "/login",
+    "/logout",
+    "/registration",
+    "/settings"
+  ]
+}
