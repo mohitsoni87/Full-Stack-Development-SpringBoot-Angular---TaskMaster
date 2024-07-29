@@ -1,4 +1,7 @@
 HELP.md
+**/.DS_Store
+/.DS_Store
+
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -20,23 +23,17 @@ target/
 *.iml
 *.ipr
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
 ### VS Code ###
 .vscode/
 
 # Node
+/frontend/.DS_Store
+/frontend/WebApp/.DS_Store
 /frontend/WebApp/ToDoApp/node_modules
 /frontend/WebApp/ToDoApp/npm-debug.log
 /frontend/WebApp/ToDoApp/yarn-error.log
+/frontend/WebApp/ToDoApp/dist/**
 
 
 # Visual Studio Code
